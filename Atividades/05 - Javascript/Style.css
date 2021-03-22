@@ -1,0 +1,194 @@
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.overlay-modal-escondido{
+    display: none;
+}
+
+
+.overlay-modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container{
+    background-color: white;
+    width: 450px;
+    height: 280px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cabecalho-model{
+    display: flex;
+    align-items: center;
+}
+
+.cabecalho-model .x{
+    margin-left: auto;
+    height: 35px;
+    cursor: pointer;
+    border: 0px;
+}
+
+.modal-container .corpo-modal{
+    height: 175px;
+}
+
+.modal-container .rodape{
+    display: flex;
+}
+.modal-container .rodape .enviar{
+    margin-left: auto;
+    background-color: #0062cc;
+    padding: 5px;
+    color: white;
+    border: 1px;
+    cursor: pointer;
+}
+
+.menu-superior{
+    position: static;
+    height: 40px;
+    background-color: #f8f9fa;
+    width: 100%;
+}
+
+.menu-superior .cabecalho{
+    align-items: center;
+    display: flex;
+}
+
+.menu-superior .cabecalho .logo{
+    font-size: 30px;
+    margin-left: 1px;
+    color:blue;
+}
+
+.menu-superior .cabecalho .botoes{
+    margin-left: auto;
+    align-items: center;
+}
+
+.menu-superior .cabecalho .botoes .hamburger{
+    border-style: solid;
+    border-color: rgb(0, 0, 0, 0.4);
+    border-spacing: 2px;
+    font-size: 30px;
+    padding: 0px 8px 3px 8px;
+    margin-right: 1px;
+    cursor: pointer;
+}
+
+.menu-superior .cabecalho .botoes .postar{
+    font-size: 20px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.corpo{
+    display: flex;
+}
+
+.corpo .menu-retraido{
+    display: none;
+
+}
+
+.menu-aberto{
+    display: flex;
+    position: static;
+    width: 400px;
+    height: 100vw;
+    background-color: #c0c9d3;
+
+    animation-name: aparecer;
+    animation-duration: 0.8s;
+}
+
+.menu-lateral{
+    width: 400px;
+    animation-name: aparecer;
+    animation-duration: 0.8s;
+}
+
+.menu-lateral ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 400px;
+    animation-name: aparecer;
+    animation-duration: 0.8s;
+}
+
+.menu-lateral ul li {
+    position: relative;
+}
+
+.menu-lateral ul li a {
+    display: block;
+    text-decoration: none;
+    color: #E2144A;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+ }
+
+ .menu-lateral ul li a:hover {
+    background-color: darkgray;
+ }
+
+@keyframes aparecer{
+    from{
+        width: 0;
+    }to{
+        width: 400px;
+    }
+}
+
+.conteudo{
+    width: 100%;
+    padding: 40px;
+}
+
+.card-diferente{
+    width: 100%;
+    height: 80px;
+    background-color: turquoise;
+    border-radius: 10px;
+}
+
+.nome-card-diferente{
+    margin-left: 10px;
+}
+
+.conteudo-card-diferente{
+    margin-left: 8px;
+}
+
+.card{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+.nome-card{
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.conteudo-card{
+    margin-left: 8px;
+    
+}

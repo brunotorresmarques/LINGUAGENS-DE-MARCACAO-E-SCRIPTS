@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./Style.css">
+</head>
+<body>
+    <div id="2" class="overlay-modal-escondido">
+        <div class="modal-container">
+            <div class="cabecalho-model">
+                <h3>Enviar Mensagem</h3>
+                <button id="3" class="x">X</button>
+            </div>
+            <div class="corpo-modal">
+                <h4>Nome:</h4>
+                <input type="text" id="nome" name="scales">
+                <h4>Mensagem:</h4>
+                <input type="text" id="mensagem">
+            </div>
+            
+            <div class="rodape">
+                <div> </div>
+                <input class="enviar" type="submit" value="Enviar">
+            </div>
+        </div>
+    </div>
+    <nav class="menu-superior">
+        <div class="cabecalho">
+            <div class="logo">Bruno Chat</div>
+            <div class="botoes">
+                <button class="postar">Postar</button>
+                <button class="hamburger">≡</button>
+            </div>
+        </div>  
+    </nav>
+    <div class="corpo">
+        <div id="1" class="menu-retraido">
+            <div class="menu-lateral">
+                <ul id="nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">O que Fazemos?</a></li>                
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="conteudo">
+            <div class="card-diferente">
+                <h3 class="nome-card-diferente">Victor</h3>
+                <p class="conteudo-card-diferente">Oi, tudo bem?</p>
+            </div>
+            <div class="card">
+                <h3 class="nome-card">Victor</h3>
+                <p class="conteudo-card">Oi, tudo bem?</p>
+            </div>
+            <div class="card">
+                <h3 class="nome-card">Bruno</h3>
+                <p class="conteudo-card">Tudo bem!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let menu = document.getElementById("1");
+        let botao_hamburger = document.querySelector(".botoes .hamburger");
+
+        botao_hamburger.addEventListener("click", function(){
+            menu.classList.toggle("menu-aberto");
+            menu.style.width = '400px';
+            menu.classList.toggle("menu-retraido");
+        });
+
+        let postar = document.querySelector(".botoes .postar");
+        let overlay_modal = document.getElementById("2");
+        let botao_x = document.getElementById("3");
+
+        postar.addEventListener("click", function(){
+            overlay_modal.classList.toggle("overlay-modal-escondido");
+            overlay_modal.classList.toggle("overlay-modal");
+        });
+
+        botao_x.addEventListener("click", function(){
+            overlay_modal.classList.toggle("overlay-modal-escondido");
+            overlay_modal.classList.toggle("overlay-modal");
+        });
+
+    const posts_data = [{
+            nome:"Victor",
+            mensagem:"Oi, tudo bem?",
+        },
+        {
+            nome:"Bruno",
+            mensagem:"Tudo bem!"
+        }]
+
+        // Parte referente a função de enviar mensagem
+
+        let nome_form = document.getElementById("nome");
+        let conteudo_form = document.getElementById("mensagem");
+        let enviar = document.querySelector(".enviar")
+        let conteudo = document.querySelector(".conteudo");
+
+
+        enviar.addEventListener("click", function(event){
+            event.preventDefault();
+            let nome = nome_form.value;
+            let mensagem = conteudo_form.value
+
+            let card = document.createElement("div");
+            card.classList.add("card");
+
+            let h3 = document.createElement("h3");
+            h3.classList.add("nome-card");
+            let texto_h3 = document.createTextNode(nome);
+            h3.appendChild(texto_h3)
+
+
+            let p = document.createElement("p");
+            p.classList.add("conteudo-card");
+            let texto_p = document.createTextNode(mensagem);
+
+            p.appendChild(texto_p);
+
+            card.appendChild(h3);
+            card.appendChild(p);
+
+
+            conteudo.appendChild(card);
+
+            nome_form.value = "";
+            conteudo_form.value = "";
+
+            let str = {nome: nome,
+                       mensagem: mensagem}
+
+            posts_data.push(str);
+
+            console.log(posts_data);
+
+            overlay_modal.classList.toggle("overlay-modal-escondido");
+            overlay_modal.classList.toggle("overlay-modal");
+        })
+
+
+
+
+        //Parte referente a mensagem diferente
+
+    setInterval(() => {
+        const post = getInteiroAleatorioEntre(0, posts_data.length)
+        document.querySelector(".nome-card-diferente").innerHTML = post.nome;
+        document.querySelector(".conteudo-card-diferente").innerHTML = post.mensagem
+    }, 2000)
+
+    function getInteiroAleatorioEntre(min = 0, max = 0) {
+        const valor = Math.random() * (max - min) + min
+        return posts_data[Math.floor((valor))]
+    }
+
+    </script>
+
+</body>
+</html>

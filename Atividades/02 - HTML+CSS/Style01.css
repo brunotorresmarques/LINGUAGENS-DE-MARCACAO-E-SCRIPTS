@@ -1,0 +1,67 @@
+.titulo{
+    background-color:   rgb(77,210,202);
+        background: linear-gradient(180deg, rgba(77,210,202,1) 0%, rgba(109,152,19,1) 0%, rgba(12,230,74,1) 24%, rgba(87,230,42,1) 52%, rgba(159,230,12,1) 79%);
+    display: block;
+}
+
+.nomeTitulo{
+    width: 450px;
+    margin-top: auto;
+    margin-left: 6%;
+}
+body{
+    background-color: gainsboro;
+    margin: 0%;
+}
+
+.navegador{
+    display: flex;
+    background-color: cornsilk;
+    padding: 1%;
+}
+
+.botoes{
+    display: block;
+    background-color: deepskyblue;
+    border: black;
+    border-width: 2%;
+    margin-left: 5%;
+    border-style: ridge;
+    padding: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+.botoes:hover{
+    background-color: chartreuse;
+}
+
+.dropdown .conteudo{
+    display: none;
+    position: absolute;
+    top: 180px;
+    left: 16px;
+    width: 300px;
+}
+
+.dropdown:hover .conteudo{
+    display: block;
+}
+
+.artigos{
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: ivory;
+    margin-bottom: 2%;
+    padding: 5%;
+    border-style: ridge;
+}
+
+.textos{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.titulos-dos-textos{
+    color: forestgreen;
+    margin-top: 5%;
+    margin-left: 4%;
+}

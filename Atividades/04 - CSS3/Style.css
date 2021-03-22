@@ -1,0 +1,231 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+
+ul.nav { 
+	margin:0; 
+	padding:0;
+	}
+	
+ul.nav li {
+	list-style:none;	
+	display:inline;
+	}
+ul.nav li a {
+    float:left;
+    margin-left: 10px;
+}
+
+
+.links{
+    display: block;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.accordions{
+    width:100%;
+    margin:0 auto;
+    border:1px solid #ccc;
+}
+.accordion-item input{
+	display:none;
+}
+.accordion-item label{
+    display:block;
+    border:1px solid #ccc;
+    background:#e5e5e5;
+    cursor:pointer;
+    height: 28px;
+	padding:5px 3px;
+}
+.accordion-content{
+    height: 0px;
+    overflow: hidden;
+    -webkit-transition: height 0.3s ease-in-out;
+    -moz-transition: height 0.3s ease-in-out;
+    -o-transition: height 0.3s ease-in-out;
+    -ms-transition: height 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out;
+ }
+[id^=accordion]:checked ~ .accordion-content {
+    height: 240px;
+}
+
+
+.animacao{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation-name: circular;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: absolute;
+}
+
+@keyframes circular {
+    from {
+        transform: translate(-300px, -100px);
+        transform: rotate(0deg);
+    }
+    to {    
+        transform: rotate(360deg);
+        transform: translate(1000px, 0px);
+    }
+}
+
+.overlay{
+    display: flex;
+    margin-left: center;
+    position: relative;
+    justify-content: center;
+}
+.overlay .brazao{
+    position: absolute;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+
+.overlay .texto-celula2{
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    width: 100%;
+    margin-top: 340px;
+    height: 60px;
+}
+
+.overlay .texto-celula2:hover{
+    opacity: 1;
+}
+
+.overlay .texto-celula2 .texto{
+    display: block;
+}
+
+@media screen and (min-width: 768px){
+    
+    .nav-superior{
+        background-color: aquamarine;
+        height: 40px;
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+
+    .container{
+        display: flex;
+    }
+    
+    .container .conteudo{
+        flex-basis: calc(100vw - 350px);
+    }
+    .container .esquerdo{
+        background-color: rgb(169, 219, 221);
+        flex-basis: 350px;
+        flex-shrink: 0;
+        height: 800px;
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+    
+    .container .conteudo .linha1{
+        height: 400px;
+        display: flex;
+    }
+    
+    .container .conteudo .linha1 .celula1{
+        flex-basis: calc(100%/2);
+        flex-shrink: 0;
+        background-color: gold;
+    }
+    
+    .container .conteudo .linha1 .celula2{
+        flex-basis: calc(100%/2);
+        flex-shrink: 0;
+        background-color: blue;
+    }
+    
+    .container .conteudo .linha2{
+        height: 400px;
+        display: flex;
+    }
+    
+    .container .conteudo .linha2 .celula3{
+        flex-basis: calc(100%/3);
+        flex-shrink: 0;
+        background-color: chartreuse;
+    }
+    
+    .container .conteudo .linha2 .celula4{
+        flex-basis: calc(100%/3);
+        flex-shrink: 0;
+        background-color: red;
+    }
+    
+    .container .conteudo .linha2 .celula5{
+        flex-basis: calc(100%/3);
+        flex-shrink: 0;
+        background-color: mediumspringgreen;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .nav-superior{
+        background-color: aquamarine;
+        height: 40px;
+    }
+
+    .container{
+        flex-direction: column;
+    }
+
+    .container .esquerdo{
+        background-color: rgb(169, 219, 221);
+        flex-basis: 350px;
+        flex-shrink: 0;
+        height: 400px;
+    }
+
+    .linha1{
+        flex-direction: column;
+        height: 800px;
+    }
+
+    .linha1 .celula1{
+        height: 400px;
+        background-color: gold;
+
+    }
+
+    .linha1 .celula2{
+        height: 400px;
+        background-color: blue;
+    }
+
+    .linha2{
+        flex-direction: column;
+        height: 1200px;
+    }
+
+    .linha2 .celula3{
+        height: 400px;
+        background-color: chartreuse;
+    }
+    
+    .linha2 .celula4{
+        height: 400px;
+        background-color: red;
+    }
+    
+    .linha2 .celula5{
+        height: 400px;
+        background-color: mediumspringgreen;
+    }
+}

@@ -1,0 +1,89 @@
+.titulo{
+    background-color:   rgb(77,210,202);
+        background: linear-gradient(180deg, rgba(77,210,202,1) 0%, rgba(109,152,19,1) 0%, rgba(12,230,74,1) 24%, rgba(87,230,42,1) 52%, rgba(159,230,12,1) 79%);
+    display: block;
+}
+
+.nomeTitulo{
+    width: 450px;
+    margin-top: auto;
+    margin-left: 6%;
+}
+body{
+    background-color: gainsboro;
+    margin: 0%;
+}
+
+.navegador{
+    display: flex;
+    background-color: cornsilk;
+    padding: 1%;
+}
+
+.botoes{
+    display: block;
+    background-color: deepskyblue;
+    border: black;
+    border-width: 2%;
+    margin-left: 5%;
+    border-style: ridge;
+    padding: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.botoes:hover{
+    background-color: chartreuse;
+}
+
+.container{
+    display: flex;
+}
+
+.container .menu1{
+    width: 300px;
+    display: block;
+    background-color: rgb(226, 220, 193);
+}
+
+.container .conteudo{
+    display: flex;
+    flex-grow: 3;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-around;
+
+}
+
+.container .menu2{
+    flex-grow: 1;
+    background-color: turquoise;
+}
+
+.container .conteudo .imagens{
+    width: 150px;
+    height: 150px;
+
+}
+
+.bot{
+    display: block;
+    background-color: mediumspringgreen;
+    border: black;
+    border-width: 2%;
+    margin-left: 5%;
+    margin-right: 3%;
+    margin-top: 3%;
+    border-style: ridge;
+    padding: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.rodape{
+    background-color:   rgb(77,210,202);
+    background: linear-gradient(180deg, rgba(77,210,202,1) 0%, rgba(109,152,19,1) 0%, rgba(12,230,74,1) 24%, rgba(87,230,42,1) 52%, rgba(159,230,12,1) 79%);
+s
+}

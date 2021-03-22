@@ -1,0 +1,81 @@
+.titulo{
+    background-color:   rgb(77,210,202);
+        background: linear-gradient(180deg, rgba(77,210,202,1) 0%, rgba(109,152,19,1) 0%, rgba(12,230,74,1) 24%, rgba(87,230,42,1) 52%, rgba(159,230,12,1) 79%);
+    display: block;
+    position: fixed;
+    width: 100%;
+    top: 0%;
+}
+
+.nomeTitulo{
+    width: 450px;
+    margin-top: auto;
+    margin-left: 6%;
+}
+
+body{
+    background-color: gainsboro;
+    margin: 0%;
+}
+
+.navegador{
+    background-color: cornsilk;
+    padding: 1%;
+    width: 400px;
+    height: 900px;
+    position: fixed;
+    top: 20.4%;
+}
+
+.botoes{
+    display: block;
+    background-color: deepskyblue;
+    border: black;
+    border-width: 2%;
+    margin-left: 2%;
+    border-style: ridge;
+    padding: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.botoes:hover{
+    background-color: chartreuse;
+}
+
+.dropdown .conteudo{
+    display: none;
+    position: absolute;
+    top: 17.9%;
+    left: 17%;
+    width: 300px;
+}
+
+.dropdown:hover .conteudo{
+    display: block;
+}
+
+.artigos{
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: ivory;
+    margin-bottom: 2%;
+    padding: 5%;
+    border-style: ridge;
+}
+
+.local-dos-artigos{
+    position: static;
+    margin-top: 12%;
+    margin-left: 30%;
+}
+
+.textos{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.titulos-dos-textos{
+    color: forestgreen;
+    margin-top: 5%;
+    margin-left: 4%;
+}
