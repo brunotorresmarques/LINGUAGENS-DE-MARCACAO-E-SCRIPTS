@@ -1,0 +1,141 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
+
+.centraliza{
+    display: flex;
+    justify-content: center;
+}
+
+.pagina{
+    width: 900px;
+    background-color: rgb(201, 194, 194);
+    height: 100%;
+    overflow: hidden;
+}
+
+.menu-superior .cabecalho{
+    align-items: center;
+    display: flex;
+}
+
+.cabecalho{
+    align-items: center;
+    display: flex;
+    position: fixed;
+    width: 900px;
+    background-color: #279736;
+    border: 1px solid #ccc;
+}
+
+.cabecalho .logo{
+    font-size: 30px;
+    margin-left: 1px;
+    color:rgb(236, 236, 236);
+    margin-left: 5px;
+}
+
+.cabecalho .nome-titulo{
+    font-size: 30px;
+    color: rgb(240, 240, 240);
+    margin-left: auto;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.conteudo{
+    display: flex;
+    height: 100vh;
+}
+
+.conteudo .coluna-grupos{
+    background-color: #c0c9d3;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 300px;
+    height: 100%;
+    border: 1px solid #ccc;
+    overflow: scroll;
+}
+
+.coluna-grupos .botao-adiciona-grupo{
+    width: 300px;
+    padding: 10px;
+    bottom: 0;
+    position: fixed;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+}
+
+.div-do-grupo{
+    display: flex;
+    text-decoration: none;
+    color: blue;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+
+.div-do-grupo:hover {
+    background-color: darkgray;
+    cursor: pointer;
+ }
+
+
+.conteudo .coluna-mensagens{
+    width: 600px;
+    background-image: url('./Imagens/Fundo.jpg'); 
+    background-size: 100%;
+    height: 100%;
+    margin-bottom: 40px;
+}
+
+.coluna-mensagens .mensagens{
+    padding: 25px;
+    height: 100%;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    overflow: scroll;
+}
+
+.mensagem{
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.nome-mensagem{
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.conteudo-mensagem{
+    margin-left: 8px;
+    
+}
+
+
+.coluna-mensagens .enviar-mensagem{
+    display: flex;
+    width: 600px;
+    padding: 10px;
+    bottom: 0;
+    position: fixed;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+}
+
+.imagem-do-grupo{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: rgb(206, 206, 206);
+}
+
+
+.nome-do-grupo{
+    margin-left: 10px;
+}
+

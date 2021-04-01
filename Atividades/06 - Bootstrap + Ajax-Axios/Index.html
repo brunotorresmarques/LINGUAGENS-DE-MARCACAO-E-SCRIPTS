@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zap WEB</title>
+    <link rel="stylesheet" href="./Style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+    <div style="background-color: rgb(56, 54, 54); height: 100%;">
+        <div class="centraliza">
+            <div class="pagina">
+    
+                <!-- Header-->
+                <div class="cabecalho">
+                    <div class="logo">
+                        Zap WEB
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                          </svg>
+                    </div>
+                    <div id="div-nome" class="nome-titulo"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                          </svg>
+                    </div>
+                </div>
+    
+                <div class="conteudo">
+                    <div class="coluna-grupos">
+                        <div class="grupos"></div>
+                        <div class="botao-adiciona-grupo centraliza">
+                            <!-- Button para adicionar grupo -->
+                            <input id="nome-do-grupo" class="form-control me-2" type="search" placeholder="Nome do grupo" aria-label="Search">
+                            <button class="btn btn-primary" type="submit" onclick="Cria_grupo()">Criar</button>
+                        </div>
+                    </div>
+
+                    <div class="coluna-mensagens">
+                        <div class="mensagens">
+                    
+                        </div>
+                        <div class="enviar-mensagem">
+                            <input id="corpo-mensagem" class="form-control me-2" type="search" placeholder="Escrever Mensagem" >
+                            <button onclick="Envia_mensagem()" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Adicionar</button>                        </div>
+                        
+                    </div>
+                </div>
+    
+                <!-- Modal Para adicionar Nome -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nome</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" id="nome" name="scales" placeholder="Seu nome">
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="Add_nome()">Ok</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+         
+    
+            </div>
+        </div>
+    </div>
+
+  
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+
+
+        // Referente a inserir nome
+        let modal = new bootstrap.Modal(document.getElementById("exampleModal"))
+        modal.show();
+
+        let nome_usuario;
+        let id_grupo;
+
+        function Add_nome(){
+            let div_nome = document.getElementById("div-nome");
+            let nome_form = document.getElementById("nome");
+            let nome = document.createTextNode(nome_form.value);
+            nome_usuario = nome;
+            console.log(nome_usuario.data);
+            nome_form.value = "";
+            div_nome.appendChild(nome);
+
+        }
+
+        // Referente a buscar e adicionar grupos a página
+
+        let lista_de_grupos;
+
+        function Carregar_grupos(){
+            axios({
+                method: "GET",
+                url: "https://server-json-lms.herokuapp.com/grupos",
+            }).then((Response)=>{
+                lista_de_grupos = Response.data;
+
+                Add_grupos();
+            }).catch((error)=>{
+                console.log(error);
+                console.log("Deu errado");
+            })
+        }
+            
+        Carregar_grupos();
+
+        function Add_grupos(){
+            let div_principal = document.querySelector(".grupos")
+            div_principal.textContent = '';
+
+
+            for(let i = 0; i <lista_de_grupos.length; i++){
+
+                //Resgatando e convertendo nome da lista
+                let nome_list = lista_de_grupos[i].nome;
+                let nome = document.createTextNode(nome_list);
+
+                
+
+                //Criando elementos do grupo
+                let card = document.createElement("div");
+                card.classList.add("div-do-grupo");
+
+                let imagem = document.createElement("img");
+                imagem.src = "./Imagens/Imagem-do-grupo.png";
+                imagem.classList.add("imagem-do-grupo");
+
+                card.appendChild(imagem);
+
+                let h5 = document.createElement("h5");
+                h5.appendChild(nome);
+                h5.classList.add("nome-do-grupo")
+
+                card.appendChild(h5);
+                card.id = lista_de_grupos[i].id;
+                card.onclick = ()=> Busca_mensagens(card.id);
+                div_principal.appendChild(card);
+            }
+
+        }
+        
+
+        //Buscar e adicionar as mensagens
+        function Busca_mensagens(id){
+            id_grupo = id;
+
+            axios({
+                method: "GET",
+                url: "https://server-json-lms.herokuapp.com/grupos/" + id + "/mensagens",
+            }).then((Response)=>{
+                Add_mensagens(Response.data);
+                
+            }).catch((error)=>{
+                console.log(error);
+                console.log("Deu errado");
+            })
+        }
+
+        function Add_mensagens(mensagens){
+            let div_principal = document.querySelector(".mensagens");
+            div_principal.innerHTML = '';
+
+            for(let i = 0; i < mensagens.length; i++){
+                let div_mensagem = document.createElement("div");
+                div_mensagem.classList.add("mensagem");
+
+                let nome = document.createElement("h5");
+                nome.classList.add("nome-mensagem");
+                nome.textContent = mensagens[i].nome;
+
+                let texto_mensagem = document.createElement("p");
+                texto_mensagem.classList.add("conteudo-mensagem");
+                texto_mensagem.textContent = mensagens[i].corpo;
+
+                div_mensagem.appendChild(nome);
+                div_mensagem.appendChild(texto_mensagem);
+                console.log(div_mensagem);
+
+                div_principal.appendChild(div_mensagem);
+
+            }
+        }
+
+        //Enviar nova mensagem
+
+        function Envia_mensagem(){
+            event.preventDefault();
+            let corpo_da_mensagem = document.getElementById("corpo-mensagem");
+            if(corpo_da_mensagem.value != null){
+                axios({
+                    method: "POST",
+                    url: "https://server-json-lms.herokuapp.com/mensagens",
+                    data: {
+                        nome: nome_usuario.data,
+                        corpo: corpo_da_mensagem.value,
+                        grupoId: id_grupo
+                    },
+                }).then((Response)=>{
+                    Busca_mensagens(id_grupo);
+                    
+                }).catch((error)=>{
+                    console.log(error);
+                    console.log("Deu errado");
+                }) 
+                corpo_da_mensagem.value = '';
+            }   
+        }
+
+        //Criar grupo
+
+        function Cria_grupo(){
+            event.preventDefault();
+            let nome_do_grupo = document.getElementById("nome-do-grupo");
+            if(nome_do_grupo.value != null){
+                axios({
+                    method: "POST",
+                    url: "https://server-json-lms.herokuapp.com/grupos",
+                    data: {
+                        nome: nome_do_grupo.value,
+                    },
+                }).then((Response)=>{
+                    Carregar_grupos();
+                    
+                }).catch((error)=>{
+                    console.log(error);
+                    console.log("Deu errado");
+                }) 
+                nome_do_grupo.value = '';
+            }
+        }
+        
+    </script>
+
+</body>
+</html>
